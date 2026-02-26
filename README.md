@@ -23,9 +23,13 @@ Merging to `main` triggers a GitHub Actions workflow that:
 
 Required GitHub configuration:
 
-| Type | Name | Description |
-|------|------|-------------|
-| Secret | `AWS_ROLE_ARN` | IAM role ARN for OIDC authentication |
-| Variable | `AWS_REGION` | e.g. `us-east-1` |
-| Variable | `S3_BUCKET_NAME` | S3 bucket configured for static hosting |
-| Variable | `CLOUDFRONT_DISTRIBUTION_ID` | CloudFront distribution ID |
+| Type     | Name                         | Description                             |
+| -------- | ---------------------------- | --------------------------------------- |
+| Secret   | `AWS_ROLE_ARN`               | IAM role ARN for OIDC authentication    |
+| Variable | `AWS_REGION`                 | e.g. `us-east-1`                        |
+| Variable | `S3_BUCKET_NAME`             | S3 bucket configured for static hosting |
+| Variable | `CLOUDFRONT_DISTRIBUTION_ID` | CloudFront distribution ID              |
+
+## BUILT USING TERRASHARK 😎
+
+TerraShark was used to build this!
