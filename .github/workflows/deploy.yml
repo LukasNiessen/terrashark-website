@@ -32,25 +32,7 @@ jobs:
           aws-region: ${{ vars.AWS_REGION }}
 
       - name: Deploy to S3
-        run: |
-          aws s3 sync dist/ s3://${{ vars.S3_BUCKET_NAME }} \
-            --delete \
-            --cache-control "public, max-age=31536000, immutable" \
-            --exclude "*.html" \
-            --exclude "sitemap*.xml" \
-            --exclude "robots.txt"
-
-          # HTML and SEO files get short cache for quick updates
-          aws s3 sync dist/ s3://${{ vars.S3_BUCKET_NAME }} \
-            --delete \
-            --cache-control "public, max-age=60, s-maxage=300" \
-            --include "*.html" \
-            --include "sitemap*.xml" \
-            --include "robots.txt" \
-            --exclude "*" \
+        run: aws s3 sync dist/ s3://${{ vars.S3_BUCKET_NAME }} --delete
 
       - name: Invalidate CloudFront cache
-        run: |
-          aws cloudfront create-invalidation \
-            --distribution-id ${{ vars.CLOUDFRONT_DISTRIBUTION_ID }} \
-            --paths "/*"
+        run: aws cloudfront create-invalidation --distribution-id ${{ vars.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
