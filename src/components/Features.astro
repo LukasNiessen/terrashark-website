@@ -1,0 +1,100 @@
+---
+const features = [
+  {
+    icon: '&#x1F9E0;',
+    title: 'Failure-Mode-First Diagnosis',
+    description: 'Unlike traditional skills that dump examples, TerraShark diagnoses which failure modes apply to your specific task before generating any code.',
+  },
+  {
+    icon: '&#x26A1;',
+    title: '7x More Token-Efficient',
+    description: 'Empirically validated: only ~600 tokens for the core skill, with 18 granular reference files loaded on demand. No wasted context.',
+  },
+  {
+    icon: '&#x1F6E1;&#xFE0F;',
+    title: 'Anti-Hallucination Guardrails',
+    description: 'Built-in checklists of known LLM mistakes for Terraform and OpenTofu. Catches errors like using count instead of for_each, missing moved blocks, and more.',
+  },
+  {
+    icon: '&#x1F512;',
+    title: 'Secret Exposure Prevention',
+    description: 'Prevents secrets from leaking through state files, logs, default values, and CI artifacts. Includes rotation playbooks and workload identity patterns.',
+  },
+  {
+    icon: '&#x1F4CB;',
+    title: 'Structured Output Contracts',
+    description: 'Every response includes assumptions, selected failure modes, remediation tradeoffs, validation plans, and rollback notes — fully auditable.',
+  },
+  {
+    icon: '&#x2699;&#xFE0F;',
+    title: 'Production CI/CD Templates',
+    description: 'Ready-to-use GitHub Actions, GitLab CI, and Atlantis templates with drift prevention, cost visibility, and policy gates baked in.',
+  },
+];
+---
+
+<section id="features">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Why This Terraform Skill</span>
+      <h2>Built to Fix How AI Writes <span class="text-gradient">Infrastructure Code</span></h2>
+      <p>
+        LLMs hallucinate extensively when generating Terraform. TerraShark teaches the model
+        <em>how to think</em> about infrastructure problems through a structured 7-step diagnostic workflow.
+      </p>
+    </div>
+
+    <div class="features-grid">
+      {features.map((f, i) => (
+        <div class={`card feature-card animate-in delay-${i % 3 + 1}`}>
+          <div class="feature-icon" set:html={f.icon}></div>
+          <h3>{f.title}</h3>
+          <p>{f.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .feature-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .feature-icon {
+    font-size: 1.75rem;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-accent-glow);
+    border-radius: var(--radius-sm);
+    margin-bottom: 0.25rem;
+  }
+
+  .feature-card p {
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  @media (max-width: 900px) {
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

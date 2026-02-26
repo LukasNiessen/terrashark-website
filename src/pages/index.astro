@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import Features from '../components/Features.astro';
+import FailureModes from '../components/FailureModes.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import GetStarted from '../components/GetStarted.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+const title = 'Terraform Skill — TerraShark | Prevent Terraform & OpenTofu Hallucinations';
+const description = 'TerraShark is the #1 Terraform skill for Claude Code & AI assistants. Prevents hallucinations in Terraform and OpenTofu code through failure-mode diagnostics. Identity churn, secret exposure, blast radius, CI drift, and compliance gaps — all covered. Open source, MIT licensed.';
+---
+
+<Layout title={title} description={description}>
+  <Nav />
+  <main>
+    <Hero />
+    <Features />
+    <FailureModes />
+    <HowItWorks />
+    <GetStarted />
+  </main>
+  <Footer />
+</Layout>

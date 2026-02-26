@@ -1,0 +1,76 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="Terraform skill, Terraform Claude skill, OpenTofu skill, Terraform best practices, Terraform guardrails, Terraform hallucinations, TerraShark, infrastructure as code, IaC skill, Terraform AI, Claude Code skill, Terraform linting, Terraform compliance, Terraform security" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="TerraShark" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://terrashark.dev" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <title>{title}</title>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "TerraShark — The Terraform Skill for Claude Code",
+      "applicationCategory": "DeveloperApplication",
+      "description": "The #1 Terraform skill for AI coding assistants. Prevents hallucinations in Terraform and OpenTofu code generation through failure-mode diagnostics.",
+      "operatingSystem": "Cross-platform",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Lukas Niessen",
+        "url": "https://github.com/LukasNiessen"
+      },
+      "url": "https://github.com/LukasNiessen/terrashark",
+      "downloadUrl": "https://github.com/LukasNiessen/terrashark",
+      "softwareVersion": "2.3.0",
+      "license": "https://opensource.org/licenses/MIT"
+    })} />
+  </head>
+  <body>
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+    <slot />
+
+    <script>
+      // Subtle glow follows mouse
+      document.addEventListener('mousemove', (e) => {
+        document.documentElement.style.setProperty('--mouse-x', e.clientX + 'px');
+        document.documentElement.style.setProperty('--mouse-y', e.clientY + 'px');
+      });
+    </script>
+  </body>
+</html>

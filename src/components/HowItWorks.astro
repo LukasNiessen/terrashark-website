@@ -1,0 +1,116 @@
+---
+const steps = [
+  {
+    step: '1',
+    title: 'Capture Context',
+    description: 'Documents your runtime, Terraform version, providers, backend, execution path, and risk level.',
+  },
+  {
+    step: '2',
+    title: 'Diagnose Failure Modes',
+    description: 'Identifies which of the 5 failure modes — identity churn, secret exposure, blast radius, CI drift, compliance gaps — apply to your task.',
+  },
+  {
+    step: '3',
+    title: 'Load Targeted References',
+    description: 'Pulls only the relevant guardrails from 18 focused reference files. No token waste.',
+  },
+  {
+    step: '4',
+    title: 'Propose Fix Path',
+    description: 'Suggests implementation with risk notes, required approvals, test plans, and rollback expectations.',
+  },
+  {
+    step: '5',
+    title: 'Generate Artifacts',
+    description: 'Produces HCL changes, migration blocks, CI/policy updates, and compliance documentation.',
+  },
+  {
+    step: '6',
+    title: 'Validate & Deliver',
+    description: 'Runs validation sequences, then delivers a complete output contract with assumptions, tradeoffs, and recovery notes.',
+  },
+];
+---
+
+<section id="how-it-works">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Terraform Skill Workflow</span>
+      <h2>A 6-Step Diagnostic <span class="text-gradient">Workflow</span></h2>
+      <p>
+        Instead of guessing, TerraShark follows a structured process based on HashiCorp's
+        official best practices to produce safe, auditable Terraform code.
+      </p>
+    </div>
+
+    <div class="steps-grid">
+      {steps.map((s) => (
+        <div class="step-card">
+          <div class="step-number">{s.step}</div>
+          <div class="step-content">
+            <h3>{s.title}</h3>
+            <p>{s.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .step-card {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--color-border);
+    background: var(--gradient-card);
+    transition: all var(--transition);
+  }
+
+  .step-card:hover {
+    border-color: rgba(0, 229, 200, 0.25);
+    box-shadow: 0 0 30px var(--color-accent-glow);
+  }
+
+  .step-number {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-accent);
+    background: var(--color-accent-glow);
+    min-width: 2.75rem;
+    height: 2.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+  }
+
+  .step-content h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .step-content p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .steps-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
